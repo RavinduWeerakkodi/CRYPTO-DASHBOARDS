@@ -95,4 +95,8 @@ app.use((req, res, next) => {
       log(`serving on port ${port}`);
     },
   );
+
+  // Start the ML Prediction Loop
+  const { Scheduler } = await import("./services/scheduler");
+  Scheduler.startPredictionLoop();
 })();
